@@ -36,8 +36,12 @@ public class GrouponJDemo {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        if(args.length != 1){
+            System.out.println("Usage: Groupon-J.jar [groupon client id]");
+            return;
+        }
         Iterator i;
-        GrouponApiV2 client = new GrouponApiV2("11680de3cd3cdd0b39b86897824464f0d9eaba04");
+        GrouponApiV2 client = new GrouponApiV2(args[0]);
         try {
             Collection<Division> divisions = client.getDivisions();
             i = divisions.iterator();
